@@ -1,0 +1,15 @@
+{% load static %}
+    <div style="background-color: grey; border-radius: 10px;">
+        <p>Cabeçalho</p>
+        <div style="align-items: center;">
+            <a href="{% url 'home' %}" style="text-decoration: none; text-transform: uppercase;">Home</a>
+            <a href="{% url 'cad-estilo' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Estilo</a>
+            <a href="{% url 'cad-tamanho' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Tamanho</a>
+            <a href="{% url 'cad-color' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Colorização</a>
+            <a href="{% url 'cad-promo' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Promo</a>
+            <br>
+            <a href="{% url 'cad-arte' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Arte</a>
+            <a href="{% url 'cad-tatuagem' %}" style="text-decoration: none; text-transform: uppercase;">Cadastro Tatuagem</a>
+        </div>        
+    </div>      
+        
