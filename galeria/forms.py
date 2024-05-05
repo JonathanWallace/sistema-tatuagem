@@ -23,7 +23,7 @@ class ColorizacaoForms(forms.ModelForm):
         exclude = []      
 
         labels = {
-            'colorizacao_nome':'Colorização',
+            'colorizacao_nome':'Nome',
         }
 
         widgets = {
@@ -59,9 +59,9 @@ class PromocaoForms(forms.ModelForm):
 
         widgets = {
             'promo_nome': forms.TextInput(attrs={"class":"form-control"}),
-            'promo_data_inicio': forms.DateInput(attrs={'class':"form-control"}),
-            'promo_data_fim': forms.DateInput(attrs={'class':"form-control"}),
-            'promo_ativa': forms.CheckboxInput(),
+            'promo_data_inicio': forms.DateInput(attrs={'class':"form-control", 'type':'date'}),
+            'promo_data_fim': forms.DateInput(attrs={'class':"form-control", 'type':'date'}),
+            'promo_ativa': forms.CheckboxInput(attrs={"class":"form-control"}),
 
         }
 
@@ -85,10 +85,10 @@ class ArteForms(forms.ModelForm):
             'arte_nome': forms.TextInput(attrs={"class":"form-control"}),
             'arte_estilo': forms.Select(attrs={'class':"form-control"}),
             'arte_colorizacao': forms.Select(attrs={'class':"form-control"}),
-            'arte_preco': forms.TextInput(),
-            'arte_qndt_sessoes': forms.TextInput(),
-            'arte_promocao': forms.Select(),
-            'arte_wishlist': forms.CheckboxInput(),
+            'arte_preco': forms.TextInput(attrs={"class":"form-control"}),
+            'arte_qntd_sessoes': forms.NumberInput(attrs={"class":"form-control"}),
+            'arte_promocao': forms.Select(attrs={"class":"form-control"}),
+            'arte_wishlist': forms.CheckboxInput(attrs={"class":"form-control"}),
             'arte_imagem': forms.FileInput(attrs={'class':"form-control"}),
 
         }
@@ -115,14 +115,14 @@ class TatuagemForms(forms.ModelForm):
         widgets = {
             'tatuagem_nome': forms.TextInput(attrs={"class":"form-control"}),
             'tatuagem_nome_cliente': forms.TextInput(attrs={"class":"form-control"}),
-            'tatuagem_data': forms.DateInput(attrs={"class":"form-control"}),
+            'tatuagem_data': forms.DateInput(attrs={"class":"form-control",'format': '%Y-%m-%d', 'type':'date'}),
             'tatuagem_estilo': forms.Select(attrs={'class':"form-control"}),
             'tatuagem_colorizacao': forms.Select(attrs={'class':"form-control"}),
             'tatuagem_tamanho': forms.Select(attrs={'class':"form-control"}),
             'tatuagem_lugar_corpo': forms.TextInput(attrs={"class":"form-control"}),
             'tatuagem_local_servico': forms.TextInput(attrs={"class":"form-control"}),
-            'tatuagem_preco': forms.TextInput(),
-            'tatuagem_duracao_servico': forms.TextInput(),
+            'tatuagem_preco': forms.TextInput(attrs={"class":"form-control"}),
+            'tatuagem_duracao_servico': forms.TextInput(attrs={"class":"form-control"}),
             'tatuagem_imagem': forms.FileInput(attrs={'class':"form-control"}),
 
         }

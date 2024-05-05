@@ -1,5 +1,6 @@
 from django.db import models
 import re
+from datetime import datetime
 
 
 class Estilo(models.Model):
@@ -46,7 +47,7 @@ class Arte(models.Model):
     arte_nome = models.CharField(max_length=100, null=False, blank=False)    
     arte_estilo = models.ForeignKey(to=Estilo, on_delete=models.SET_NULL, null=True, blank=False, related_name='estilo_arte')
     arte_colorizacao = models.ForeignKey(to=Colorizacao, on_delete=models.SET_NULL, null=True, blank=False, related_name='colorizacao_arte')
-    arte_preco = models.FloatField(max_length=8, null=False, blank=False)
+    arte_preco = models.FloatField(max_length=8.2, null=False, blank=False)
     arte_qntd_sessoes = models.IntegerField(null=True, blank=True, default=0)
     arte_promocao = models.ForeignKey(to=Promocao, on_delete=models.SET_NULL, null=True, blank=True, related_name='promo_arte')
     arte_wishlist = models.BooleanField(default=False)
@@ -65,7 +66,7 @@ class Tatuagem(models.Model):
 
     tatuagem_nome = models.CharField(max_length=100, null=False, blank=False)
     tatuagem_nome_cliente = models.CharField(max_length=100, null=True, blank=True)
-    tatuagem_data = models.DateField()
+    tatuagem_data = models.DateTimeField(default=datetime.now, blank=False)
     tatuagem_estilo = models.ForeignKey(to=Estilo, on_delete=models.SET_NULL, null=True, blank=False, related_name='estilo_tatuagem')
     tatuagem_colorizacao = models.ForeignKey(to=Colorizacao, on_delete=models.SET_NULL, null=True, blank=False, related_name='colorizacao_tatuagem')
     tatuagem_tamanho = models.ForeignKey(to=Tamanho, on_delete=models.SET_NULL, null=True, blank=False, related_name='tamanho_tatuagem')

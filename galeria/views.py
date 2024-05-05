@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from galeria.models import Estilo
+from galeria.models import Arte, Tatuagem
 from galeria.forms import EstiloForms, ColorizacaoForms, TamanhoForms, PromocaoForms, ArteForms, TatuagemForms
 
 # Create your views here.
 
 def home(request):
-    data = {'title':'Galeria'}
+    artes = Arte.objects.all()
+    data = {'cards':artes}
     return render(request, 'home.html', data)
 
 
@@ -15,6 +16,7 @@ def cadastro_estilo(request):
     data = {
         'cad_url':'cad-estilo',
         'form':form,
+        'cad_nome':'Novo Estilo'
         }
 
     if request.method == 'POST':
@@ -30,6 +32,7 @@ def cadastro_tamanho(request):
     data = {
         'cad_url':'cad-tamanho',
         'form':form,
+        'cad_nome':'Novo Tamanho'
         }
 
     if request.method == 'POST':
@@ -45,6 +48,7 @@ def cadastro_color(request):
     data = {
         'cad_url':'cad-color',
         'form':form,
+        'cad_nome':'Nova Colorização'
         }
 
     if request.method == 'POST':
@@ -60,6 +64,7 @@ def cadastro_promo(request):
     data = {
         'cad_url':'cad-promo',
         'form':form,
+        'cad_nome':'Nova Promoção'
         }
 
     if request.method == 'POST':
@@ -74,6 +79,7 @@ def cadastro_arte(request):
     data = {
         'cad_url':'cad-arte',
         'form':form,
+        'cad_nome':'Nova Arte'
         }
 
     if request.method == 'POST':
@@ -88,6 +94,7 @@ def cadastro_tatuagem(request):
     data = {
         'cad_url':'cad-tatuagem',
         'form':form,
+        'cad_nome':'Nova Tatuagem'
         }
 
     if request.method == 'POST':

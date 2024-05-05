@@ -1,17 +1,22 @@
 {% extends '_base.html' %}
 {% load static %}
 {% block content %}
-    <p>Tela de cadastro</p>
+<div class="form-container">
+    <h1 class="form-field-label">{{cad_nome}}</h1>
     <form accept="{% url cad_url %}" method="POST", enctype="multipart/form-data">
         {% csrf_token %}
-        <div>
             {% for field in form.visible_fields %}
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
-                {{field}}<br>
+                <div>                    
+                    <label class="form-field-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                </div>                
+                <div>
+                    {{field}}
+                </div>
             {% endfor %}
-        </div>
         <div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="btn-cadastro">Cadastrar</button>
         </div>        
     </form>
+</div>
+    
 {% endblock %}

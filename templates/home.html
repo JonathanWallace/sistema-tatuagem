@@ -1,5 +1,20 @@
 {% extends '_base.html' %}
 {% load static %}
 {% block content %}
-    <p>Bem vindo a {{ title }}</p>
+    <div class="cards-container">
+        {% if cards %}
+        {% for arte in cards %}
+        <div class="card">
+            <img class="card-imagem" src="{{ arte.arte_imagem.url }}" alt="foto">
+            <div class="card-text">
+                <h1>{{ arte.arte_nome}}</h1>
+                <h2>Estilo: {{arte.arte_estilo}}</h2>
+                <h2>Colorização: {{arte.arte_colorizacao}}</h2>
+                <h2>Preço: R${{arte.arte_preco}}</h2>
+
+            </div>            
+        </div>        
+        {% endfor%}
+        {% endif %}
+    </div>
 {% endblock %}
