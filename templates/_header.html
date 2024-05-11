@@ -1,11 +1,77 @@
 {% load static %}
-    <div class="header-container">        
-        <a class="header-menu-item" href="{% url 'home' %}" >Home</a>
-        <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
-        <a class="header-menu-item" href="{% url 'cad-tamanho' %}">Cadastro Tamanho</a>
-        <a class="header-menu-item" href="{% url 'cad-color' %}">Cadastro Colorização</a>
-        <a class="header-menu-item" href="{% url 'cad-promo' %}">Cadastro Promo</a>
-        <a class="header-menu-item" href="{% url 'cad-arte' %}">Cadastro Arte</a>
-        <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a>            
-    </div>      
+    <nav class="header-container">
+        <a href="{% url 'home' %}"><img class="logo" alt="logo" src="{% static 'image/logo.jpg' %}"></a>        
+        <ul class="nav-list">
+            <li>
+                <a class="header-menu-item" href="{% url 'home' %}" >Home</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'catalogo' %}" >Catalogo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'portfolio' %}" >Portfolio</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'contato' %}" >Contato</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-tamanho' %}">Cadastro Tamanho</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-color' %}">Cadastro Colorização</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-promo' %}">Cadastro Promo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-arte' %}">Cadastro Arte</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a> 
+            </li>            
+        </ul>   
+        <button class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button> 
+    </nav>    
+    <nav class="header-menu-container">
+        <ul class="menu-list">
+            <li>
+                <a class="header-menu-item" href="{% url 'home' %}" >Home</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'catalogo' %}" >Catalogo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'portfolio' %}" >Portfolio</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'contato' %}" >Contato</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-tamanho' %}">Cadastro Tamanho</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-color' %}">Cadastro Colorização</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-promo' %}">Cadastro Promo</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-arte' %}">Cadastro Arte</a>
+            </li>
+            <li>
+                <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a> 
+            </li>            
+        </ul> 
+    </nav> 
+    
         

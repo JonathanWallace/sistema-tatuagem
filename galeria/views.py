@@ -6,8 +6,22 @@ from galeria.forms import EstiloForms, ColorizacaoForms, TamanhoForms, PromocaoF
 
 def home(request):
     artes = Arte.objects.all()
-    data = {'cards':artes}
+    tatuagens = Tatuagem.objects.all()
+    data = {'cards_arte':artes, 'cards_tatu':tatuagens}
     return render(request, 'home.html', data)
+
+def contato(request):
+    return render(request, 'contato.html')
+
+def catalogo(request):
+    artes = Arte.objects.all()
+    data = {'cards':artes}
+    return render(request, 'catalogo.html', data)
+
+def portfolio(request):
+    tatus = Tatuagem.objects.all()
+    data = {'cards':tatus}
+    return render(request, 'portfolio.html', data)
 
 
 def cadastro_estilo(request):

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="form-container">
-    <h1 class="form-field-label">{{cad_nome}}</h1>
+    <h1 class="form-title-label">{{cad_nome}}</h1>
     <form accept="{% url cad_url %}" method="POST", enctype="multipart/form-data">
         {% csrf_token %}
             {% for field in form.visible_fields %}
