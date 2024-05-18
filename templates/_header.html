@@ -88,7 +88,7 @@
             {% endif %}       
             {% if not request.user.is_authenticated %}    
             <li>
-                <a class="header-menu-item" href="#">Logar</a> 
+                <a class="header-menu-item" href="{% url 'login' %}">Logar</a> 
             </li>      
             {% endif %} 
         </ul> 
