@@ -4,15 +4,16 @@
     <div class="cards-container">
         {% if cards %}
         {% for arte in cards %}
-        <a href="https://www.google.com.br">
+        <a href="{% url 'detail-arte' arte.id %}">
             <div class="card">
+                {% if arte.arte_imagem == '' or arte.arte_imagem == null %}
+                <img class="card-imagem" src="{% static 'image/sem_foto.png' %}" alt="foto">
+                {% else %}
                 <img class="card-imagem" src="{{ arte.arte_imagem.url }}" alt="foto">
+                {% endif %}
                 <div class="card-text">
                     <h1>{{ arte.arte_nome}}</h1>
-                    <h2>Estilo: {{arte.arte_estilo}}</h2>
-                    <h2>Colorização: {{arte.arte_colorizacao}}</h2>
-                    <h1>R${{arte.arte_preco|floatformat:2}}</h1>
-                    
+                    <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>                   
                 </div>            
             </div>      
         </a>          

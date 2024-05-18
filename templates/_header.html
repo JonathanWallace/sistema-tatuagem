@@ -14,6 +14,7 @@
             <li>
                 <a class="header-menu-item" href="{% url 'contato' %}" >Contato</a>
             </li>
+            {% if request.user.is_authenticated %}
             <li>
                 <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
             </li>
@@ -31,7 +32,16 @@
             </li>
             <li>
                 <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a> 
-            </li>            
+            </li>   
+            <li>
+                <a class="header-menu-item" href="{% url 'sair' %}">Sair</a> 
+            </li>  
+            {% endif %}
+            {% if not request.user.is_authenticated %}    
+            <li>
+                <a class="header-menu-item" href="{% url 'login' %}">Logar</a> 
+            </li>      
+            {% endif %} 
         </ul>   
         <button class="menu-toggle">
             <span class="bar"></span>
@@ -53,6 +63,7 @@
             <li>
                 <a class="header-menu-item" href="{% url 'contato' %}" >Contato</a>
             </li>
+            {% if request.user.is_authenticated %}
             <li>
                 <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
             </li>
@@ -70,7 +81,16 @@
             </li>
             <li>
                 <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a> 
-            </li>            
+            </li>     
+            <li>
+                <a class="header-menu-item" href="{% url 'sair' %}">Cadastro Tatuagem</a> 
+            </li>  
+            {% endif %}       
+            {% if not request.user.is_authenticated %}    
+            <li>
+                <a class="header-menu-item" href="#">Logar</a> 
+            </li>      
+            {% endif %} 
         </ul> 
     </nav> 
     

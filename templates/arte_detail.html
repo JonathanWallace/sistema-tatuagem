@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
+<div class="cards-container">
+    <div class="card-detail">
+        {% if arte.arte_imagem == '' or arte.arte_imagem == null %}
+            <img class="card-imagem" src="{% static 'image/sem_foto.png' %}" alt="foto">
+        {% else %}
+            <img class="card-imagem" src="{{ arte.arte_imagem.url }}" alt="foto">
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <div class="delete">
+            <a href="{% url 'deletar' arte.id %}">
+            <img class="delete-icon" src="{% static 'image/deletar.png' %}" alt="deletar">
+            </a>
+        </div>
+        {% endif %}
+        <div class="card-text">
+            <h1>{{ arte.arte_nome}}</h1>
+            <h2>{{ arte.arte_estilo }}</h2>
+            <h2>{{ arte.arte_colorizacao }}</h2>
+            <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>                   
+        </div>            
+    </div>    
+</div>  
+
+{% endblock %}

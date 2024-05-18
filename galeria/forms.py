@@ -37,12 +37,14 @@ class TamanhoForms(forms.ModelForm):
 
         labels = {
             'tamanho_nome':'Nome',
-            'tamanho_dimensao': 'Centímetros'
+            'tamanho_min':'Tamanho Mínimo(cm)',
+            'tamanho_max':'Tamanho Máximo(cm)'
         }
 
         widgets = {
             'tamanho_nome': forms.TextInput(attrs={"class":"form-control"}),
-            'tamanho_dimensao': forms.TextInput(attrs={'class':"form-control"}),
+            'tamanho_min': forms.NumberInput(attrs={"class":"form-control"}),
+            'tamanho_max': forms.NumberInput(attrs={"class":"form-control"})
         }
 
 class PromocaoForms(forms.ModelForm):
@@ -74,8 +76,10 @@ class ArteForms(forms.ModelForm):
             'arte_nome':'Nome',
             'arte_estilo': 'Estilo',
             'arte_colorizacao': 'Colorização',
+            'arte_tamanho': 'Tamanho',
             'arte_preco':'Preço',
             'arte_qntd_sessoes': 'Quantidade de Sessões',
+            'arte_lugar_corpo': 'Lugar do Corpo',
             'arte_promocao':'Promoção',
             'arte_wishlist':'Wishlist',
             'arte_imagem': 'Imagem',
@@ -85,8 +89,10 @@ class ArteForms(forms.ModelForm):
             'arte_nome': forms.TextInput(attrs={"class":"form-control"}),
             'arte_estilo': forms.Select(attrs={'class':"form-control"}),
             'arte_colorizacao': forms.Select(attrs={'class':"form-control"}),
-            'arte_preco': forms.TextInput(attrs={"class":"form-control"}),
+            'arte_tamanho': forms.Select(attrs={"class":"form-control"}),
+            'arte_preco': forms.NumberInput(attrs={"class":"form-control", 'min':'0.01', 'step':'0.01'}),
             'arte_qntd_sessoes': forms.NumberInput(attrs={"class":"form-control"}),
+            'arte_lugar_corpo': forms.TextInput(attrs={"class":"form-control"}),
             'arte_promocao': forms.Select(attrs={"class":"form-control"}),
             'arte_wishlist': forms.CheckboxInput(attrs={"class":"form-control"}),
             'arte_imagem': forms.FileInput(attrs={'class':"form-control"}),
@@ -126,3 +132,28 @@ class TatuagemForms(forms.ModelForm):
             'tatuagem_imagem': forms.FileInput(attrs={'class':"form-control"}),
 
         }
+
+class LoginForms(forms.Form):
+    nome_login = forms.CharField(
+        label='Nome de usuário', 
+        required=True, 
+        max_length=100,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Digite seu usuário"
+            }
+        )
+    )
+    
+    senha = forms.CharField(
+        label='Senha',
+        required=True, 
+        max_length=70,
+        widget=forms.PasswordInput(
+            attrs={
+                "class":"form-control",
+                "placeholder": "Digite sua senha"
+            }
+        )
+    )

@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Poetsen+One&display=swap');
 * {
-    font-family: sans-serif;
+    font-family: "Poetsen One";
     margin: 0px;   
     padding: 0px;
 }
@@ -12,13 +13,15 @@
     width: 100%;
     height: 100%;
     background-image: url('image/bg-image01.jpg');
-    background-size: cover;
+    background-size: contain;
     opacity: 0.4;
-    filter: blur(3px);
+    filter: blur(1.5px);
     z-index: -1;
 }
-
-
+.message-text {
+    font-weight: bold;
+    font-size: 30px;
+}
 
 .header-container {
     display: inline-flex;
@@ -190,6 +193,7 @@
 }
 
 .port-imagem {
+    position: relative;
     border-radius: 8px;
     height: 200px;
     object-fit: cover;
@@ -204,18 +208,59 @@
 }
 
 .card {
-    padding: 20px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    position: relative;
+    padding: 10px;
+    margin: 5px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: inline-block;
     width: 25%;
     min-width: 130px;  
     box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
-    
-        
+            
 }
+
+.card-detail{
+    position: relative;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: inline-block;
+    width: 35%;
+    min-width: 130px;  
+    box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
+}
+.card-detail .delete{
+    position: absolute;
+    aspect-ratio: 1/1;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+
+.card-detail .delete .delete-icon{
+   width: 80px;
+}
+
+.card-detail .delete:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.3);
+    border-radius: 50%
+}
+
+
+.card-detail .card-imagem {
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    width: 100%;
+    
+    
+}
+
+
 .card:hover {
     transform: scale(1.04);
     transition: 0.3s;
@@ -225,20 +270,37 @@
 }
 
 .card-imagem {
+    position: relative;
     border-radius: 10px;
     object-fit: cover;
     aspect-ratio: 1/1;
     width: 100%;
-    max-width: 400px;
+    
 }
 
 .card-text {
-    font-size: 50%;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 2px;
+    left: 0;
+    width: 100%;
+    margin-bottom: 13px;
+    font-size: 70%;
     text-align: center;    
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    font-weight: bold;
+    color: rgb(255, 255, 255);    
+    border-radius: 8px;    
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.card-detail .card-text{
+    position: relative; 
+}
+
+.card-text h1 {
+    font-size: 26px;
+}
+.card-text h2 {
+    font-size: 22px;
 }
 
 .form-container {
@@ -336,14 +398,19 @@
         display: none;       
     }
     .menu-list.active {
-        display: block;       
+        display: block;     
     }
-
+    .card-detail{
+        width: 40%;
+    }
     
 }
 @media (max-width: 650px) {
     .card {
         width: 40%;
+    }
+    .card-detail{
+        width: 80%;
     }
 }
 @media (max-width: 550px) {
@@ -358,7 +425,7 @@
         padding-right: 0%;
     }
     .card {
-        width: 80%;
+        width: 40%;
     }   
     .port-imagem {
         border-radius: 8px;
@@ -368,6 +435,9 @@
     }
     .search_field {
         width: 70%;   
+    }
+    .card-detail{
+        width: 80%;
     }
     
 }

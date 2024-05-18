@@ -11,6 +11,11 @@
                 </div>                
                 <div>
                     {{field}}
+                    {% for error in field.errors %}
+                        <div class="erro-formulario">
+                            {{error}}                               
+                        </div>
+                    {% endfor %}
                 </div>
             {% endfor %}
         <div>

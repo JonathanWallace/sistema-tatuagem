@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container" >
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        {% for message in messages %}
+        <p class="message-text">{{message}}</p>
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            <div>
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+                {{ field }}
+            </div>
+        {% endfor%}
+    </div>
+    <div>
+        <button class="btn-cadastro" type="submit">Logar</button>
+    </div>
+</form>
+</div>
+{% endblock %}
