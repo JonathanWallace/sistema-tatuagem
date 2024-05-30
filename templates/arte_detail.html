@@ -39,7 +39,7 @@
             <h2>De {{ arte.arte_tamanho.tamanho_min }}cm a {{ arte.arte_tamanho.tamanho_max }}cm</h2>
             <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>
             <br>
-            <a href="{% url 'deletar' arte.id %}"><button type="button" class="btn-cadastro">Agendar</button></a>                   
+            <a href="#"><button type="button" class="btn-cadastro">Agendar</button></a>                   
         </div>
         {% endif %}            
     </div>    
