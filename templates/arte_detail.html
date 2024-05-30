@@ -14,13 +14,34 @@
             <img class="delete-icon" src="{% static 'image/deletar.png' %}" alt="deletar">
             </a>
         </div>
-        {% endif %}
+        <form class="form-container" accept="{% url cad_url %}" method="POST", enctype="multipart/form-data">
+            {% csrf_token %}
+                {% for field in form.visible_fields %}
+                    <div>
+                        <label class="form-field-label" for="{{ field.id_for_label }}">{{ field.label }}</label>              
+                        {{field}}
+                        {% for error in field.errors %}
+                        <div class="erro-formulario">
+                            {{error}}                               
+                        </div>
+                        {% endfor %}                    
+                    </div>
+                {% endfor %}            
+                <button type="submit" class="btn-cadastro">Salvar</button>
+                <a href="{% url 'deletar' arte.id %}"><button type="button" class="btn-delete">Deletar</button></a>
+            </div>        
+        </form>
+        {% else %}
         <div class="card-text">
             <h1>{{ arte.arte_nome}}</h1>
             <h2>{{ arte.arte_estilo }}</h2>
             <h2>{{ arte.arte_colorizacao }}</h2>
-            <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>                   
-        </div>            
+            <h2>De {{ arte.arte_tamanho.tamanho_min }}cm a {{ arte.arte_tamanho.tamanho_max }}cm</h2>
+            <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>
+            <br>
+            <a href="{% url 'deletar' arte.id %}"><button type="button" class="btn-cadastro">Agendar</button></a>                   
+        </div>
+        {% endif %}            
     </div>    
 </div>  
 

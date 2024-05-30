@@ -1,36 +1,16 @@
 {% extends '_base.html' %}
 {% load static %}
 {% block content %}
-    <div class="cards-container">
-        {% if cards_arte %}
-        {% for arte in cards_arte %}
-        <a href="{% url 'detail-arte' arte.id %}">
-        <div class="card">
-            {% if arte.arte_imagem == '' or arte.arte_imagem == null %}
-            <img class="card-imagem" src="{% static 'image/sem_foto.png' %}" alt="foto">
-            {% else %}
-            <img class="card-imagem" src="{{ arte.arte_imagem.url }}" alt="foto">
-            {% endif %}
-            <div class="card-text">
-                <h1>{{ arte.arte_nome}}</h1>
-                <h2>R${{ arte.arte_preco|floatformat:2 }}</h2>                
-            </div>            
-        </div>        
-        {% endfor%}
-        {% endif %}
-        </a>
+<div class="home-container">
+    <div class="home-img-perfil">
+        <div class="home-text">
+            <p>Sou Bruno Diniz, e mais do que um tatuador, sou um artista apaixonado por games, filmes e quadrinhos.</p>
+            <p>Transformo essa paixão em tatuagens únicas, cheias de personalidade e que contam histórias.</p>
+            <p>Trabalho com traços precisos e criatividade sem limites, dando vida aos seus personagens favoritos, elementos de fantasia e referências que só um fã de verdade entenderia.</p>
+            <p>Se você busca uma tattoo que te represente e te transporte para outros mundos, eu sou o artista perfeito para você!</p>
+        </div>
+        <img src="{% static 'image/home-perfil.jpg' %}" alt="Bruno Diniz - Tatuador">
+        
     </div>
-    <div class="ports-container">
-        {% if cards_tatu %}
-        {% for tatuagem in cards_tatu %}
-        <div class="port">
-            <img class="port-imagem" src="{{ tatuagem.tatuagem_imagem.url }}" alt="foto">
-            <div class="port-text">
-                <h1>{{ tatuagem.tatuagem_nome}}</h1>
-                <h2>{{tatuagem.tatuagem_data|date}}</h2>                
-            </div>            
-        </div>        
-        {% endfor%}
-        {% endif %}
-    </div>
+</div>
 {% endblock %}

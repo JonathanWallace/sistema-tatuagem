@@ -82,6 +82,7 @@ class ArteForms(forms.ModelForm):
             'arte_lugar_corpo': 'Lugar do Corpo',
             'arte_promocao':'Promoção',
             'arte_wishlist':'Wishlist',
+            'arte_reservado':'Reservado',
             'arte_imagem': 'Imagem',
         }
 

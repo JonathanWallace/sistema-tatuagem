@@ -57,6 +57,7 @@ class Arte(models.Model):
     arte_lugar_corpo = models.CharField(max_length=100, null=True, blank=True)
     arte_promocao = models.ForeignKey(to=Promocao, on_delete=models.SET_NULL, null=True, blank=True, related_name='promo_arte')
     arte_wishlist = models.BooleanField(default=False)
+    arte_reservado = models.BooleanField(default=False)
     arte_imagem = models.ImageField(upload_to=get_path, blank=True)    
 
     def __str__(self) -> str:

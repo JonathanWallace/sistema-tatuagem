@@ -10,8 +10,8 @@
 <body>
     <div class="background"></div>
     {% include '_header.html' %}
-    {% include '_search_bar.html' %}
-    <div class="body-container">               
+    <div class="body-container">  
+        {% include '_search_bar.html' %}             
         {% block content %}{% endblock %}       
     </div>
     {% include '_footer.html' %}

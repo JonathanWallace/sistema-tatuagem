@@ -1,6 +1,7 @@
 {% load static %}
     <nav class="header-container">
-        <a href="{% url 'home' %}"><img class="logo" alt="logo" src="{% static 'image/logo.jpg' %}"></a>        
+        <a href="{% url 'home' %}"><img class="logo" alt="logo" src="{% static 'image/logo.jpg' %}"></a>
+        <h1 class="titulo">LANCE.TTT</h1>
         <ul class="nav-list">
             <li>
                 <a class="header-menu-item" href="{% url 'home' %}" >Home</a>
@@ -83,7 +84,7 @@
                 <a class="header-menu-item" href="{% url 'cad-tatuagem' %}">Cadastro Tatuagem</a> 
             </li>     
             <li>
-                <a class="header-menu-item" href="{% url 'sair' %}">Cadastro Tatuagem</a> 
+                <a class="header-menu-item" href="{% url 'sair' %}">Sair</a> 
             </li>  
             {% endif %}       
             {% if not request.user.is_authenticated %}    

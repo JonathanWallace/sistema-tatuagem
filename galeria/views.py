@@ -29,7 +29,26 @@ def catalogo(request):
 
 def detail_arte(request, arte_id):
     arte = get_object_or_404(Arte, pk=arte_id)
-    return render(request, 'arte_detail.html', {'arte':arte})
+    if request.user.is_authenticated:
+        form = ArteForms(instance=arte)
+        data = {
+        'cad_url':'cad-arte',
+        'arte':arte,
+        'form':form,
+        }        
+        if request.method == 'POST':
+            form = ArteForms(request.POST, request.FILES, instance=arte)
+            if form.is_valid():
+                form.save()
+                data = {
+                'cad_url':'cad-arte',
+                'arte':arte,
+                'form':form,
+                }   
+                return render(request, 'arte_detail.html', data)
+        return render(request, 'arte_detail.html', data)
+    else:
+        return render(request, 'arte_detail.html', {'arte':arte})
 
 def portfolio(request):
     tatus = Tatuagem.objects.all()
@@ -136,7 +155,6 @@ def cadastro_tatuagem(request):
 @validador
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'Logout efetuado com sucesso!')
     return redirect('home')
 
 
@@ -153,10 +171,8 @@ def logar(request):
         
         if usuario is not None:
             auth.login(request, usuario)
-            messages.success(request, f'{nome} logado com sucesso!')
             return redirect('home')
         else:
-            messages.error(request, f'Erro ao logar')
             return redirect('login')
 
 
@@ -164,7 +180,9 @@ def logar(request):
 
 @validador
 def deletar(request, arte_id):
-    arte = Arte.objects.get(id=arte_id)
-    arte.delete()
-    messages.success(request, f"Arte:{arte.arte_nome} excluida com sucesso!")
+    try:
+        arte = Arte.objects.get(id=arte_id)
+        arte.delete()
+    except Exception:
+        pass
     return redirect('home')
