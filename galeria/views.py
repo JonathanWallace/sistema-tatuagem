@@ -42,6 +42,7 @@ def dashboard_info():
             'count_wishlist':count_wishlist}
     return info
 
+@validador
 def dashboard(request):
     data= {'infos':dashboard_info()}
     return render(request, 'dashboard.html', data)

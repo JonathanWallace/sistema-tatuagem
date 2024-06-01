@@ -5,4 +5,3 @@ menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('active');
 });
 
-inputButton = document.querySelector("#id_arte_imagem")
