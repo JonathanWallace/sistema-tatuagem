@@ -96,7 +96,7 @@ class ArteForms(forms.ModelForm):
             'arte_lugar_corpo': forms.TextInput(attrs={"class":"form-control"}),
             'arte_promocao': forms.Select(attrs={"class":"form-control"}),
             'arte_wishlist': forms.CheckboxInput(attrs={"class":"form-control"}),
-            'arte_imagem': forms.FileInput(attrs={'class':"form-control"}),
+            'arte_imagem': forms.FileInput(attrs={'class':"input-control"}),
 
         }
 
@@ -130,7 +130,7 @@ class TatuagemForms(forms.ModelForm):
             'tatuagem_local_servico': forms.TextInput(attrs={"class":"form-control"}),
             'tatuagem_preco': forms.TextInput(attrs={"class":"form-control"}),
             'tatuagem_duracao_servico': forms.TextInput(attrs={"class":"form-control"}),
-            'tatuagem_imagem': forms.FileInput(attrs={'class':"form-control"}),
+            'tatuagem_imagem': forms.FileInput(attrs={'class':"input-control"}),
 
         }
 

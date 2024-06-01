@@ -169,6 +169,16 @@
     
 }
 
+.dashboard {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;    
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
 .ports-container {
     display: block;
     width: auto;
@@ -217,7 +227,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     display: inline-block;
-    width: 25%;
+    width: 15%;
     min-width: 130px;  
     box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
             
@@ -369,8 +379,21 @@
     box-shadow: 2px;
     background-color: rgba(255, 255, 255, 0.2);
     text-align: center;
-    font-size: 16px;   
+    font-size: 16px;
+    color: white;
 }
+
+.input-control{
+    width: auto;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 16px;
+}
+
 
 .btn-cadastro, .btn-delete {
     text-transform: uppercase;
@@ -448,6 +471,14 @@
     .card-detail{
         width: 40%;
     }
+    .card {
+        width: 20%;
+    }
+@media (max-width: 1400px) {
+    .card {
+        width: 25%;
+    }
+}
     
 }
 @media (max-width: 650px) {

@@ -17,6 +17,9 @@
             </li>
             {% if request.user.is_authenticated %}
             <li>
+                <a class="header-menu-item" href="{% url 'dashboard' %}" >Dashboard</a>
+            </li>
+            <li>
                 <a class="header-menu-item" href="{% url 'cad-estilo' %}" >Cadastro Estilo</a>
             </li>
             <li>

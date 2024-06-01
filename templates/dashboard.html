@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
+<div class="dashboard">
+    <p>Total de Artes Cadastradas: {{infos.total_artes}}</p><br>
+    <p>Total por Estilo:</p>
+    <ul>
+        {% for estilo, qntd in infos.count_estilos.items %}
+        <li>{{estilo}}: {{qntd}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <p>Total por Tamanho:</p>
+    <ul>
+        {% for tamanho, qntd in infos.count_tamanhos.items %}
+        <li>{{tamanho}}: {{qntd}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <p>Valores:</p>
+    <ul>
+        <li>Maior Valor: R${{infos.valores.maior_valor|floatformat:2}}</li>
+        <li>Menor Valor: R${{infos.valores.menor_valor|floatformat:2}}</li>
+        <li>Média: R${{infos.valores.media_valor|floatformat:2}}</li>
+    </ul>
+    <br>
+    <p>Quantas estão na WISHLIST: {{infos.count_wishlist}}</p>
+</div>
+    
+{% endblock %}
