@@ -170,6 +170,7 @@
 }
 
 .dashboard {
+    margin-bottom: 5px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;    
@@ -177,6 +178,10 @@
     font-size: 18px;
     color: white;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    
+}
+
+.dashboard-list {
     list-style: none;
 }
 

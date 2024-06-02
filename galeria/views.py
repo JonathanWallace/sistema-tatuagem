@@ -16,30 +16,61 @@ def validador(func):
 def dashboard_info():
     artes = Arte.objects.all()
     tatuagens = Tatuagem.objects.all()
-    total_artes = len(artes)    
+
+    total_artes = len(artes)
+    total_tatuagens = len(tatuagens)
+
     valores = {
-        'maior_valor':max([arte.arte_preco for arte in artes]), 
-        'menor_valor': min([arte.arte_preco for arte in artes]),
-        'media_valor':sum([arte.arte_preco for arte in artes])/len(artes)
-        }
+        'maior_valor':max([arte.arte_preco for arte in artes]) if artes else 0, 
+        'menor_valor':min([arte.arte_preco for arte in artes]) if artes else 0,
+        'media_valor':sum([arte.arte_preco for arte in artes])/len(artes) if artes else 0
+        } if artes else None
+
+    valores_tatuagens = {
+        'maior_valor':max([tatuagem.tatuagem_preco for tatuagem in tatuagens]) if tatuagens else 0, 
+        'menor_valor':min([tatuagem.tatuagem_preco for tatuagem in tatuagens])  if tatuagens else 0,
+        'media_valor':sum([tatuagem.tatuagem_preco for tatuagem in tatuagens])/len(tatuagens) if tatuagens else 0,
+        'tempo_medio':sum([tatuagem.tatuagem_duracao_servico for tatuagem in tatuagens])/len(tatuagens) if tatuagens else 0
+    } if tatuagens else None
+    
     count_estilos = {}
-    count_tamanhos = {}
-    count_wishlist = sum([1 for arte in artes if arte.arte_wishlist==True])
+    count_tamanhos = {}    
     for arte in artes:
         if arte.arte_estilo.estilo_nome not in count_estilos:
             count_estilos[arte.arte_estilo.estilo_nome] = 1
         else:
             count_estilos[arte.arte_estilo.estilo_nome] += 1
+
         if arte.arte_tamanho.tamanho_nome not in count_tamanhos:
             count_tamanhos[arte.arte_tamanho.tamanho_nome] = 1
         else:
             count_tamanhos[arte.arte_tamanho.tamanho_nome] += 1
 
+    count_estilos_tatuagens = {}
+    count_tamanhos_tatuagens = {}    
+    for tatuagem in tatuagens:
+        if tatuagem.tatuagem_estilo.estilo_nome not in count_estilos_tatuagens:
+            count_estilos_tatuagens[tatuagem.tatuagem_estilo.estilo_nome] = 1
+        else:
+            count_estilos_tatuagens[tatuagem.tatuagem_estilo.estilo_nome] += 1
+
+        if tatuagem.tatuagem_tamanho.tamanho_nome not in count_tamanhos_tatuagens:
+            count_tamanhos_tatuagens[tatuagem.tatuagem_tamanho.tamanho_nome] = 1
+        else:
+            count_tamanhos_tatuagens[tatuagem.tatuagem_tamanho.tamanho_nome] += 1
+    
+    count_wishlist = sum([1 for arte in artes if arte.arte_wishlist==True])
+
     info = {'total_artes': total_artes,
             'count_estilos':count_estilos,
             'count_tamanhos':count_tamanhos,
             'valores':valores,
-            'count_wishlist':count_wishlist}
+            'count_wishlist':count_wishlist,
+            'total_tatuagens': total_tatuagens,
+            'count_estilos_tatuagens': count_estilos_tatuagens,
+            'count_tamanhos_tatuagens': count_tamanhos_tatuagens,
+            'valores_tatuagens': valores_tatuagens,
+            }
     return info
 
 @validador

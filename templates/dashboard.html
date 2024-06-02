@@ -4,27 +4,62 @@
 <div class="dashboard">
     <p>Total de Artes Cadastradas: {{infos.total_artes}}</p><br>
     <p>Total por Estilo:</p>
-    <ul>
+    <ul class="dashboard-list">
         {% for estilo, qntd in infos.count_estilos.items %}
         <li>{{estilo}}: {{qntd}}</li>
         {% endfor %}
     </ul>
     <br>
     <p>Total por Tamanho:</p>
-    <ul>
+    <ul class="dashboard-list">
         {% for tamanho, qntd in infos.count_tamanhos.items %}
         <li>{{tamanho}}: {{qntd}}</li>
         {% endfor %}
     </ul>
     <br>
     <p>Valores:</p>
-    <ul>
+    <ul class="dashboard-list">
         <li>Maior Valor: R${{infos.valores.maior_valor|floatformat:2}}</li>
         <li>Menor Valor: R${{infos.valores.menor_valor|floatformat:2}}</li>
         <li>Média: R${{infos.valores.media_valor|floatformat:2}}</li>
     </ul>
     <br>
     <p>Quantas estão na WISHLIST: {{infos.count_wishlist}}</p>
+</div>
+
+<div class="dashboard">
+    <p>Total de Tatuagens Cadastradas: {{infos.total_tatuagens}}</p><br>
+
+    {% if infos.count_estilos_tatuagens %}
+    <p>Total por Estilo:</p>
+    <ul class="dashboard-list">
+        {% for estilo, qntd in infos.count_estilos_tatuagens.items %}
+        <li>{{estilo}}: {{qntd}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    {% endif %}
+
+    {% if infos.count_tamanhos_tatuagens %}
+    <p>Total por Tamanho:</p>
+    <ul class="dashboard-list">
+        {% for tamanho, qntd in infos.count_tamanhos_tatuagens.items %}
+        <li>{{tamanho}}: {{qntd}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    {% endif %}
+
+    {% if infos.valores_tatuagens %}
+    <p>Valores:</p>
+    <ul class="dashboard-list">
+        <li>Maior Valor: R${{infos.valores_tatuagens.maior_valor|floatformat:2}}</li>
+        <li>Menor Valor: R${{infos.valores_tatuagens.menor_valor|floatformat:2}}</li>
+        <li>Média Valor: R${{infos.valores_tatuagens.media_valor|floatformat:2}}</li>
+        <li>Média de Tempo: {{infos.valores_tatuagens.tempo_medio|floatformat:0}}min</li>
+    </ul>
+    <br>
+    {% endif %}
 </div>
     
 {% endblock %}
