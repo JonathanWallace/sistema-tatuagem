@@ -9,11 +9,6 @@
             <img class="card-imagem" src="{{ arte.arte_imagem.url }}" alt="foto">
         {% endif %}
         {% if request.user.is_authenticated %}
-        <div class="delete">
-            <a href="{% url 'deletar' arte.id %}">
-            <img class="delete-icon" src="{% static 'image/deletar.png' %}" alt="deletar">
-            </a>
-        </div>
         <form class="form-container" accept="{% url cad_url %}" method="POST", enctype="multipart/form-data">
             {% csrf_token %}
                 {% for field in form.visible_fields %}
