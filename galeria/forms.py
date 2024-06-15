@@ -77,7 +77,7 @@ class ArteForms(forms.ModelForm):
             'arte_estilo': 'Estilo',
             'arte_colorizacao': 'Colorização',
             'arte_tamanho': 'Tamanho',
-            'arte_preco':'Preço',
+            'arte_preco':'Preço R$',
             'arte_qntd_sessoes': 'Quantidade de Sessões',
             'arte_lugar_corpo': 'Lugar do Corpo',
             'arte_promocao':'Promoção',
@@ -114,7 +114,7 @@ class TatuagemForms(forms.ModelForm):
             'tatuagem_tamanho': 'Tamanho',
             'tatuagem_lugar_corpo':'Parte do Corpo',
             'tatuagem_local_servico':'Local',
-            'tatuagem_preco':'Preço',
+            'tatuagem_preco':'Preço R$',
             'tatuagem_duracao_servico': 'Tempo de Serviço',
             'tatuagem_imagem': 'Imagem',
         }
